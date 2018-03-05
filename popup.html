@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+	<head>
+		<title>SHAPass</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<meta name="Keywords" content="SHAPass sha pass password unique">
+		<meta name="Description" content="SHAPass gestionnaire de mot de passe unique par domaine">
+		<link rel="icon" type="image/png" href="data:image/png;base64,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">
+		<style rel="stylesheet" type="text/css">
+		body
+		{
+			font-family: Ubuntu, Verdana, Arial, sans-serif;
+			font-size: 12px;
+			width: 330px;
+		}
+		th
+		{
+			background-color: rgb(200,200,200);
+		}	
+		xtable
+		{
+			border-collapse: collapse;
+		}
+		xtable, xtd, xth
+		{
+			padding: 2px;
+			border: 1px solid rgb(0,0,0);
+			vertical-align: top;
+		}
+		xtr:nth-child(odd)
+		{
+			background-color: rgb(230,230,230);
+		}
+		xtr:nth-child(even)
+		{
+		}
+		xtr:hover
+		{
+			background-color: rgb(230,200,255);
+		}
+		.css-treeview ul,
+		.css-treeview li
+		{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.css-treeview input
+		{
+			position: absolute;
+			opacity: 0;
+		}
+
+		.css-treeview
+		{
+			-- font: normal 11px "Segoe UI", Arial, Sans-serif;
+			font: normal 11px ubuntu, Arial, Sans-serif;
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			user-select: none;
+		}
+
+		.css-treeview a
+		{
+			color: #00f;
+			text-decoration: none;
+		}
+
+		.css-treeview a:hover
+		{
+			text-decoration: underline;
+		}
+
+		.css-treeview input + label + ul
+		{
+			margin: 0 0 0 22px;
+		}
+
+		.css-treeview input + label + ul
+		{
+			display: none;
+		}
+
+		.css-treeview label,
+		.css-treeview label::before
+		{
+			cursor: pointer;
+		}
+
+		.css-treeview input:disabled + label
+		{
+			cursor: default;
+			opacity: .6;
+		}
+
+		.css-treeview input:checked:not(:disabled) + label + ul
+		{
+			display: block;
+		}
+
+		.css-treeview a,
+		.css-treeview label,
+		.css-treeview label::before
+		{
+			background: url("data:image/png;base64,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") no-repeat;
+		}
+
+		.css-treeview label,
+		.css-treeview a,
+		.css-treeview label::before
+		{
+			display: inline-block;
+			height: 18px;
+			line-height: 16px;,
+			vertical-align: middle;
+		}
+
+		.css-treeview a
+		{
+			background-position: 0 -64px;
+			padding-left: 20px;
+		}
+
+		.css-treeview label
+		{
+			background-position: 18px 0;
+		}
+
+		.css-treeview label::before
+		{
+			content: "";
+			width: 16px;
+			margin: 0 22px 0 0;
+			vertical-align: middle;
+			background-position: 0 -32px;
+		}
+
+		.css-treeview input:checked + label::before
+		{
+			background-position: 0 -16px;
+		}
+
+		.css-treeview input:checked + label
+		{
+			background-position: 18px -48px;
+		}
+
+		/* webkit adjacent element selector bugfix */
+		@media screen and (-webkit-min-device-pixel-ratio:0)
+		{
+			.css-treeview 
+			{
+				-webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
+			}
+			
+			@-webkit-keyframes webkit-adjacent-element-selector-bugfix 
+			{
+				from 
+				{ 
+					padding: 0;
+				} 
+				to 
+				{ 
+					padding: 0;
+				}
+			}
+		}
+		</style>
+	  <script src="common.js"></script>
+	  <script src="SHAPass.js"></script>
+	  <script src="popup.js"></script>
+	</head>
+	<body>
+		<div id="div">
+			<table>
+				<tbody>
+					<tr>
+						<td>Nom de domaine</td>
+						<td><input type="text" id="hostname" value="" placeholder="hostname / page url"></td>
+					</tr>
+					<tr style="display: none;">
+						<td>Phrase de salage</td>
+						<td><textarea style="display: none; height: 10em; width: 40em;" placeholder="Sel ( phrase de sallage )" name="saltStri" id="saltStri"></textarea></td>
+					</tr>
+					<tr>
+						<td>Nom d'utilisateur</td>
+						<td><input type="text" id="username" value="" placeholder="Username"></td>
+					</tr>
+					<tr>
+						<td>Mot de passe</td>
+						<td><input type="password" id="password" value="" placeholder="Password"></td>
+					</tr>
+					<tr style="display: none;">
+						<td>Résultat</td>
+						<td><input type="text" id="passwres" placeholder="Résultat"></td>
+					</tr>
+					<tr>
+						<td>Longueur</td>
+						<td><input type="number" id="passwlen" min="4" max="64"  placeholder="32"></td>
+					</tr>
+					<tr>
+						<td><label for="minCharLst">Caractères minuscules</label></td>
+						<td>
+							<input type="checkbox" id="minCharLst"/>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="majCharLst">Caractères majuscules</label></td>
+						<td>
+							<input type="checkbox" id="majCharLst"/>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="numCharLst">Caractères numériques</label></td>
+						<td>
+							<input type="checkbox" id="numCharLst"/>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="specCharLst">Caractères spéciaux</label></td>
+						<td>
+							<input type="checkbox" id="specCharLst"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
