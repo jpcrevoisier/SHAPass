@@ -20,125 +20,6 @@ c)).finalize(b)}}});var w=d.algo={};return d}(Math);
 b=a.words,c=8*a.sigBytes,e=32*this.blockSize;b[c>>>5]|=1<<24-c%32;b[(v.ceil((c+1)/e)*e>>>5)-1]|=128;a.sigBytes=4*b.length;this._process();for(var a=this._state,b=this.cfg.outputLength/8,c=b/8,e=[],h=0;h<c;h++){var d=a[h],f=d.high,d=d.low,f=(f<<8|f>>>24)&16711935|(f<<24|f>>>8)&4278255360,d=(d<<8|d>>>24)&16711935|(d<<24|d>>>8)&4278255360;e.push(d);e.push(f)}return new u.init(e,b)},clone:function(){for(var a=r.clone.call(this),b=a._state=this._state.slice(0),c=0;25>c;c++)b[c]=b[c].clone();return a}});
 p.SHA3=r._createHelper(d);p.HmacSHA3=r._createHmacHelper(d)})(Math);
 
-function bmp()
-{
-	var groupbox = false;
-	var hostname = false;
-	var username = false;
-	var password = false;
-	var result = false;
-	var lenBox = false;
-	var searchElement=false;
-	var charList = 'OQaIk6pECFfsLq9MTAedjtWRxJl5Z8X1ziHB4rDKguyNShYmvbownUc30G2VP7';
-	var lenList = [8, 12, 16];
-	var prefs={};
-	var domains={};
-	var defPrefs={
-		"username":"username",
-		"saltStri":"Ceci est ma phrase de sel",
-		"passLen":8
-	};
-	this.genId = function(){
-		id='id';
-		while(id.length<12)
-		{
-			id+=''+charList.split('')[Math.floor(Math.random()*charList.length)];
-		}
-		return id;
-	};
-	this.buildStyle = function(style){
-		var s=new Array;
-		for(i in style)
-		{
-			s[s.length]=i+': '+style[i]+';';
-		}
-		return s.join(' ');
-	};
-	this.detectElement = function()
-	{
-		return false;
-	};
-	this.doit=function()
-	{
-		c=CryptoJS.SHA3(this.username.value+this.password.value+this.hostname.value).toString();
-		y='';
-		i=0;
-		while(i<=(c.length-2))
-		{
-			w=parseInt(c.slice(i,i+2),16);
-			while(w>(charList.length-1))
-			{
-				w=w-charList.length;
-			}
-			y+=''+charList[w];
-			i=i+2;
-		}
-		y=y.substr(0,parseInt(lenBox.value));
-		result.value=y;
-	};
-	this.init =function ()
-	{
-		if(!currentHostname)
-		{
-			loadDatas();
-		}
-		this.prefs=localStorage.getObject('prefs',this.defPrefs);
-		localStorage.setObject('prefs',this.prefs);
-		this.domains=localStorage.getObject('domains', {});
-		localStorage.setObject('domains',this.domains);
-		// document.getElementById('bookmypass_hostname').value=currentHostname;
-		// document.getElementById('bookmypass_username').value=this.prefs.username;
-		localStorage.setObject('shapass',this);
-		this.hostname=document.getElementById('bookmypass_hostname');
-		this.username=document.getElementById('bookmypass_username');
-		this.password=document.getElementById('bookmypass_password');
-		this.lenBox=document.getElementById('bookmypass_length');
-		this.result=document.getElementById('bookmypass_result');
-		this.groupbox=document.getElementById('bookmypass_div');
-		if(domains[currentHostname]!=undefined)
-		{
-			console.log('prefs', this.prefs);
-			this.username.value=domains[currentHostname].username;
-			this.hostname.value=domains[currentHostname].hostname;
-			this.lenBox.value=domains[currentHostname].length;
-		}
-		else
-		{
-			this.username.value=this.prefs.username;
-			this.hostname.value=currentHostname;
-			this.lenBox.value=8;
-		}
-		temp=this.doit();
-		if(this.username.value=='')
-		{
-			this.username.focus();
-		}
-		else if(this.password.value=='')
-		{
-			this.password.focus();
-		}
-		else
-		{
-			this.getIt();
-		}
-	};
-	this.testCopy = function (e)
-	{
-		if((e.ctrlKey && (e.keyCode==67 || e.keyCode==88)) || (e.keyCode==27))
-		{
-			// this.closeMe();
-		}
-	};
-	this.getIt = function ()
-	{
-		if(result.getAttribute('type')=='text')
-		{
-			result.focus();
-			result.select();
-		}
-	};
-};
-
 var currentDomain=bkg.getDomain();
 function SHAPass()
 {
@@ -168,7 +49,6 @@ function SHAPass()
 	localStorage.setObject('SHAPass',this);
 	this.hash=function(event)
 	{
-		console.log('hash ...');
 		var hostname=document.querySelector('#hostname');
 		var username=document.querySelector('#username');
 		var saltStri=document.querySelector('#saltStri');
@@ -183,7 +63,6 @@ function SHAPass()
 		c=CryptoJS.SHA3(hostname.value+''+username.value+''+password.value+''+saltStri.value).toString();
 		c+=CryptoJS.SHA3(saltStri.value+''+password.value+''+username.value+''+hostname.value).toString();
 		lists=document.querySelectorAll('input[type=checkbox]:checked');
-		console.log(lists);
 		
 		y='';
 		i=0;
@@ -195,20 +74,16 @@ function SHAPass()
 			cList=this.charLst[(lists[(w%lists.length)].id)];
 			cChar=cList[(x%cList.length)];
 			y+=cChar;
-			console.log(w, x, cList, cChar);
 		}
-		// passwres.value=y;
-		// passwres.select();
-const input = document.createElement('input');
-input.style.position = 'fixed';
-input.style.opacity = 0;
-input.value = y;
-document.body.appendChild(input);
-input.select();
-document.execCommand('Copy');
-document.body.removeChild(input);
+		const input = document.createElement('input');
+		input.style.position = 'fixed';
+		input.style.opacity = 0;
+		input.value = y;
+		document.body.appendChild(input);
+		input.select();
+		document.execCommand('Copy');
+		document.body.removeChild(input);
 		console.log(y);
-		// console.log(localStorage.getObject('SHAPass',{}));
 	};
 	this.fillFields=function()
 	{
@@ -246,7 +121,6 @@ document.body.removeChild(input);
 	};
 	this.saveMe=function()
 	{
-		console.log('save ...');
 		var hostname=document.querySelector('#hostname');
 		var username=document.querySelector('#username');
 		var saltStri=document.querySelector('#saltStri');
@@ -274,9 +148,3 @@ document.body.removeChild(input);
 		return true;
 	};
 };
-// window.addEventListener("message", function(){console.info("message reçus ... ");console.log(this, arguments);}, false);
-
-// document.addEventListener('visibilitychange', loadDatas);
-// document.execCommand('copy');
-
-
