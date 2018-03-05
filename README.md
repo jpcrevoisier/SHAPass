@@ -4,6 +4,7 @@ SHAPass est une extension pour Vivaldi.
 
 
 **> /!\ Cette extension n'est testée et développée que sous Vivaldi pour l'instant /!\ <**
+
 elle devrait être compatible Chrome / Chromium mais sans aucune certitude.
 
 
