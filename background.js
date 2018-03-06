@@ -16,14 +16,14 @@ function getDomain()
 	return currentDomain;
 }
 browser.tabs.onActivated.addListener(function(tabId, changeInfo, tab) {
-    chrome.tabs.getSelected(null, function(tab) {
+	browser.tabs.query({currentWindow: true, active: true},
+	function(tabs)
+	{
 		var l = document.createElement("a");
-		l.href = tab.url;
+		l.href = tabs[0].url;
         currentLocation = l;
         currentHostname=currentLocation.hostname;
         splitter=currentHostname.split('.');
 		currentDomain=(splitter.length>=2)?splitter[splitter.length-2]+'.'+splitter[splitter.length-1]:splitter[splitter.length-1];
-    });
+	});
 });
-
-// var shapass=new SHAPass();
