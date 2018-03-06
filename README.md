@@ -13,8 +13,8 @@ Elle a été testée et semble fonctionner sous :
 **/!\ Cette extension doit être considérée comme alpha ( voir sous-sous-alpha ) /!\\**
 
 Si vous voulez utiliser directement l'extension empaquetée :
-- [Extension Firefox shapass-0.0.1-an+fx.xpi](https://github.com/jpcrevoisier/SHAPass/Extensions/shapass-0.0.1-an+fx.xpi)
-- [Extension Chrome / Chromium / Vivaldi SHAPass-0.0.1.crx](https://github.com/jpcrevoisier/SHAPass/Extensions/shapass-0.0.1-an+fx.xpi)
+- [Extension Firefox shapass-0.0.1-an+fx.xpi](https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.1-an%2Bfx.xpi)
+- [Extension Chrome / Chromium / Vivaldi SHAPass-0.0.1.crx](https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/SHAPass-0.0.1.crx)
 
 Vous pouvez changer la configuration par défaut en passant par le dialogue d'options prévus par la navigateur.
 Vous trouverez dans cette interface de quoi renseigner les valeurs par défaut pour :
