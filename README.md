@@ -7,6 +7,7 @@ Elle a été testée et semble fonctionner sous :
  - Chromium Version 64.0.3282.167 (Build officiel)
  - Firefox 58.0.2 (Version officielle)
  - Vivaldi 1.15.1111.3 (Version officielle) snapshot  (64 bits)
+ - Google Chrome Version 64.0.3282.186 (Build officiel) (64 bits)
  
 
 **/!\ Cette extension doit être considérée comme alpha ( voir sous-sous-alpha ) /!\\**
