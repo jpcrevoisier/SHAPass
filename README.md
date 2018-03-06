@@ -1,4 +1,4 @@
-![SHAPass](https://github.com/jpcrevoisier/SHAPass/blob/master/lock48.png)**SHAPass**
+![SHAPass](https://github.com/jpcrevoisier/SHAPass/blob/master/lock48.png) #SHAPass
 
 **SHAPass** est une extension dont le but est de fournir un mot de passe unique par site/domaine a partir du hash ( SHA3 ) du nom de domaine, du login, d'une phrase de salage et d'un mot de passe a partir de l'appel de l'extension et le renseignement des champs idoines. Après cette saisie, un nouveau mot de passe unique a cette combinaison va être généré et copier dans le presse papier.
 A aucun moment ,SHAPass ne stocke, ni n’envoie de mot de passe.
