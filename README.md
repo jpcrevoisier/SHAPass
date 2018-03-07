@@ -10,7 +10,7 @@ Elle a été testée et semble fonctionner sous :
  - Google Chrome Version 64.0.3282.186 (Build officiel) (64 bits)
  - Opera 51.0.2830.40 Stable (x86_64; XFCE)
 
- 
+Il est prévu de tester sous Internet explorer / Edge dès qu'ils seront disponibles sous linux ... Non en fait, même si ils étaient portés sous linux je n'y toucherais pas 😁😁😁😁😁
 
 **/!\ Cette extension doit être considérée comme alpha ( voir sous-sous-alpha ) /!\\**
 
