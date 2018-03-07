@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "SHAPass",
 	"description": "Gestionnaire de mots de passe unique par site",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"icons": {
 		"19":"lock20.png",
 		"20":"lock20.png",
@@ -18,7 +18,8 @@
 		"page":"background.html"
 	},
 	"options_ui": {
-		"page": "options.html"
+		"page": "options.html",
+		"open_in_tab": true
 	},
 	"browser_action":
 	{
@@ -41,6 +42,5 @@
 		"activeTab",
 		"clipboardWrite"
 	],
-	// "xxoptions_page":"options.html",
-	"author": "Jean Philippe Crevoisier"
+	"author": "Jean Philippe Crevoisier <jpcrevoisier@gmail.com>"
 }
