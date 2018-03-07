@@ -45,10 +45,8 @@ document.addEventListener('DOMContentLoaded', function()
 	{
 		if(currentDomain!==null || x>=50)
 		{
-			console.log(currentDomain,temp, x++, intervalID);
 			temp=new Date();
 			window.clearInterval(intervalID);
-			document.querySelector('#password').focus();
 			shapass=new SHAPass();
 			shapass.fillFields();
 			inputs=document.querySelectorAll('input');
