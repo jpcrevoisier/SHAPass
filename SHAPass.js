@@ -3,9 +3,9 @@ window.browser = (function () {
     window.browser ||
     window.chrome;
 })();
-var bkg = chrome.extension.getBackgroundPage();
+// var bkg = chrome.extension.getBackgroundPage();
 // var bkg = browser.extension.getBackgroundPage();
-console=bkg.console;
+// console=bkg.console;
 
 var CryptoJS=CryptoJS||function(v,p){var d={},u=d.lib={},r=function(){},f=u.Base={extend:function(a){r.prototype=this;var b=new r;a&&b.mixIn(a);b.hasOwnProperty("init")||(b.init=function(){b.$super.init.apply(this,arguments)});b.init.prototype=b;b.$super=this;return b},create:function(){var a=this.extend();a.init.apply(a,arguments);return a},init:function(){},mixIn:function(a){for(var b in a)a.hasOwnProperty(b)&&(this[b]=a[b]);a.hasOwnProperty("toString")&&(this.toString=a.toString)},clone:function(){return this.init.prototype.extend(this)}},
 s=u.WordArray=f.extend({init:function(a,b){a=this.words=a||[];this.sigBytes=b!=p?b:4*a.length},toString:function(a){return(a||y).stringify(this)},concat:function(a){var b=this.words,c=a.words,j=this.sigBytes;a=a.sigBytes;this.clamp();if(j%4)for(var n=0;n<a;n++)b[j+n>>>2]|=(c[n>>>2]>>>24-8*(n%4)&255)<<24-8*((j+n)%4);else if(65535<c.length)for(n=0;n<a;n+=4)b[j+n>>>2]=c[n>>>2];else b.push.apply(b,c);this.sigBytes+=a;return this},clamp:function(){var a=this.words,b=this.sigBytes;a[b>>>2]&=4294967295<<
@@ -20,8 +20,6 @@ c)).finalize(b)}}});var w=d.algo={};return d}(Math);
 (m<<1|k>>>31);d=g.low^(k<<1|m>>>31);for(k=0;5>k;k++)g=e[h+5*k],g.high^=l,g.low^=d}for(m=1;25>m;m++)g=e[m],h=g.high,g=g.low,k=s[m],32>k?(l=h<<k|g>>>32-k,d=g<<k|h>>>32-k):(l=g<<k-32|h>>>64-k,d=h<<k-32|g>>>64-k),g=c[x[m]],g.high=l,g.low=d;g=c[0];h=e[0];g.high=h.high;g.low=h.low;for(h=0;5>h;h++)for(k=0;5>k;k++)m=h+5*k,g=e[m],l=c[m],m=c[(h+1)%5+5*k],d=c[(h+2)%5+5*k],g.high=l.high^~m.high&d.high,g.low=l.low^~m.low&d.low;g=e[0];h=y[f];g.high^=h.high;g.low^=h.low}},_doFinalize:function(){var a=this._data,
 b=a.words,c=8*a.sigBytes,e=32*this.blockSize;b[c>>>5]|=1<<24-c%32;b[(v.ceil((c+1)/e)*e>>>5)-1]|=128;a.sigBytes=4*b.length;this._process();for(var a=this._state,b=this.cfg.outputLength/8,c=b/8,e=[],h=0;h<c;h++){var d=a[h],f=d.high,d=d.low,f=(f<<8|f>>>24)&16711935|(f<<24|f>>>8)&4278255360,d=(d<<8|d>>>24)&16711935|(d<<24|d>>>8)&4278255360;e.push(d);e.push(f)}return new u.init(e,b)},clone:function(){for(var a=r.clone.call(this),b=a._state=this._state.slice(0),c=0;25>c;c++)b[c]=b[c].clone();return a}});
 p.SHA3=r._createHelper(d);p.HmacSHA3=r._createHmacHelper(d)})(Math);
-
-var currentDomain=null;
 
 function SHAPass()
 {
@@ -46,8 +44,9 @@ function SHAPass()
 	this.domains=SHAPassDatas.domains||{};
 	this.getCurrentPrefs=function()
 	{
-		currentDomain=bkg.getDomain();
-		return this.domains[currentDomain]||this.prefs;
+		// currentDomain=bkg.getDomain();
+		console.log(getDomain());
+		return this.domains[getDomain()]||this.prefs;
 	};
 	localStorage.setObject('SHAPass',this);
 	this.hash=function(event)
@@ -91,7 +90,7 @@ function SHAPass()
 	};
 	this.fillFields=function()
 	{
-		currentDomain=bkg.getDomain();
+		// currentDomain=bkg.getDomain();
 		prefs=this.getCurrentPrefs();
 		// console.log('currentDomain', currentDomain, this.domains[currentDomain]);
 
@@ -107,7 +106,7 @@ function SHAPass()
 		var numCharLst=document.querySelector('#numCharLst');
 		var specCharLst=document.querySelector('#specCharLst');
 		
-		hostname.value=currentDomain;
+		hostname.value=getDomain();
 		username.value=prefs.username;
 		passwlen.value=prefs.passwlen;
 		saltStri.value=prefs.saltStri;
@@ -135,7 +134,7 @@ function SHAPass()
 		var numCharLst=document.querySelector('#numCharLst');
 		var specCharLst=document.querySelector('#specCharLst');
 
-		this.domains[currentDomain]={
+		this.domains[getDomain()]={
 			"aaa": new Date(),
 			"hostname":hostname.value,
 			"username":username.value,

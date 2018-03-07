@@ -15,28 +15,9 @@ Elle a été testée et semble fonctionner sous :
  
 
 **/!\ Cette extension doit être considérée comme alpha ( voir sous-sous-alpha ) /!\\**
-Vos commentaires / remontées de bug sont les bienvenues
 
-Si vous voulez utiliser directement l'extension empaquetée :
-- [Extension Firefox shapass-0.0.1-an+fx.xpi](https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.1-an%2Bfx.xpi)
-- [Extension Chrome / Chromium / Vivaldi SHAPass-0.0.1.crx](https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/SHAPass-0.0.1.crx)
+Si vous voulez utiliser directement les extensions empaquetées : [Extensions](https://github.com/jpcrevoisier/SHAPass/wiki/Extensions)
 
-## Configuration par défaut
-Vous pouvez changer la configuration par défaut en passant par le dialogue d'options prévus par la navigateur. Vous trouverez dans cette interface de quoi renseigner les valeurs par défaut pour :
-- Le mot de passe.
-- La phrase de salage ( salt ).
-- La longueur du mot de passe généré.
-- La présence de caractères minuscules.
-- La présence de caractères majuscules.
-- La présence de caractères numériques.
-- La présence de caractères spéciaux.
-
-![settings](http://i.imgur.com/oQuy14R.png)
-
-## Utilisation
-
-En cliquant sur l’icône SHAPass vous allez pouvoir renseigner les informations spécifiques au site sur lequel vous naviguez. Le simple fait de renseigner un champs et de la quitter ( pour aller sur un autre champs ) va générer votre mot de passe unique et le copier dans le presse-papier.
-
-![popup](https://i.imgur.com/8UQc3Ss.png)
+Rendez vous sur le [Wiki](https://github.com/jpcrevoisier/SHAPass/wiki) pour plus d'informations sur la [configuration par défaut](https://github.com/jpcrevoisier/SHAPass/wiki/Configuration-par-d%C3%A9faut) ou l'[utilisation](https://github.com/jpcrevoisier/SHAPass/wiki/Utilisation).
 
 PS: soyez indulgent, c'est ma première extension ... :s
