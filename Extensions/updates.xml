@@ -3,5 +3,6 @@
 	<app appid='ofhbekacdeoadacbpgilhgicpinchlec'>
 		<updatecheck codebase='https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/SHAPass-0.0.3.crx' version='0.0.3' />
 		<updatecheck codebase='https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/SHAPass-0.0.4.crx' version='0.0.4' />
+		<updatecheck codebase='https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/SHAPass-0.0.5.crx' version='0.0.5' />
 	</app>
 </gupdate>

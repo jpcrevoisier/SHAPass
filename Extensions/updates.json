@@ -18,6 +18,11 @@
 					"update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.4-an+fx.xpi",
 					"update_hash": "sha256:ade93ca22a801dbbcd04682aac1d7b61131fd939e220dafb69715c317861a9af"
 				},
+				{
+					"version": "0.0.5",
+					"update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.5-an+fx.xpi",
+					"update_hash": "sha256:29e418bcfc6ebbc4e8a0f2ae70dbc317e3cda2cd84507cb4c661d9adeab3704e"
+				},
 				"applications":
 				{
 					"gecko":
