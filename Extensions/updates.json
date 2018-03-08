@@ -1,16 +1,31 @@
 {
-  "addons": {
-    "SHAPass": {
-      "updates": [
-        { "version": "0.0.2",
-          "update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.2-an+fx.xpi",
-          "update_hash": "sha256:08ce0dbcd0d8752bd017b4dd8fa8223ba97898954c71348afd82c9eff9763a53" },
-        { "version": "0.0.3",
-          "update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.3-an+fx.xpi",
-          "update_hash": "sha256:c4a4048caaef5cae403259acee5cfa0be65e93084d9bb108b75d9b3f663145d9" },
-          "applications": {
-            "gecko": { "strict_min_version": "44" } } }
-      ]
-    }
-  }
+	"addons": {
+		"SHAPass": {
+			"updates":
+			[
+				{
+					"version": "0.0.2",
+					"update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.2-an+fx.xpi",
+					"update_hash": "sha256:08ce0dbcd0d8752bd017b4dd8fa8223ba97898954c71348afd82c9eff9763a53"
+				},
+				{
+					"version": "0.0.3",
+					"update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.3-an+fx.xpi",
+					"update_hash": "sha256:c4a4048caaef5cae403259acee5cfa0be65e93084d9bb108b75d9b3f663145d9"
+				},
+				{
+					"version": "0.0.4",
+					"update_link": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/shapass-0.0.4-an+fx.xpi",
+					"update_hash": "sha256:ade93ca22a801dbbcd04682aac1d7b61131fd939e220dafb69715c317861a9af"
+				},
+				"applications":
+				{
+					"gecko":
+					{
+						"strict_min_version": "44"
+					}
+				}
+			]
+		}
+	}
 }

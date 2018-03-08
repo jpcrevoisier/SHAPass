@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "SHAPass",
 	"description": "Gestionnaire de mots de passe unique par site",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"icons": {
 		"19":"lock20.png",
 		"20":"lock20.png",
@@ -43,11 +43,11 @@
 		"clipboardWrite"
 	],
 	"author": "Jean Philippe Crevoisier <jpcrevoisier@gmail.com>",
-	"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/",
+	"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/updates.xml",
 	"applications":
 	{
-	"gecko": {
-		"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/updates.json"
+		"gecko": {
+			"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/updates.json"
+		}
 	}
-}
 }
