@@ -43,11 +43,5 @@
 		"clipboardWrite"
 	],
 	"author": "Jean Philippe Crevoisier <jpcrevoisier@gmail.com>",
-	"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/updates.xml",
-	"applications":
-	{
-		"gecko": {
-			"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/updates.json"
-		}
-	}
+	"update_url": "https://github.com/jpcrevoisier/SHAPass/raw/master/Extensions/updates.xml"
 }
