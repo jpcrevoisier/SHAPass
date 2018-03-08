@@ -14,7 +14,7 @@ Il est prévu de tester sous Internet explorer / Edge dès qu'ils seront disponi
 
 **/!\ Cette extension doit être considérée comme alpha ( voir sous-sous-alpha ) /!\\**
 
-Si vous voulez utiliser directement les extensions empaquetées : [Extensions](https://github.com/jpcrevoisier/SHAPass/wiki/Extensions)
+Si vous voulez utiliser directement les extensions empaquetées : [Extensions](https://github.com/jpcrevoisier/SHAPass/tree/master/Extensions)
 
 Rendez vous sur le [Wiki](https://github.com/jpcrevoisier/SHAPass/wiki) pour plus d'informations sur la [configuration par défaut](https://github.com/jpcrevoisier/SHAPass/wiki/Configuration-par-d%C3%A9faut) ou l'[utilisation](https://github.com/jpcrevoisier/SHAPass/wiki/Utilisation).
 
