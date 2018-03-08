@@ -3,11 +3,6 @@ window.browser = (function () {
     window.browser ||
     window.chrome;
 })();
-/*
-var bkg = chrome.extension.getBackgroundPage();
-console=bkg.console;
-*/
-// var currentDomain=bkg.getDomain();
 function save(event)
 {
 	shapass.hash(event);
@@ -18,7 +13,6 @@ var currentHostname=null;
 var currentDomain=null;
 getDomain=function()
 {
-	// return new Date();
 	return currentDomain;
 };
 

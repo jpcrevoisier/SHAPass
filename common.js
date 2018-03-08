@@ -11,11 +11,9 @@ if(query!='')
 		}
 	}
 }
-
 Storage.prototype.setObject = function(key, value) {
     this.setItem(key, JSON.stringify(value));
 }
-
 Storage.prototype.getObject = function(key, obj) {
     var value = this.getItem(key);
     try
@@ -142,7 +140,6 @@ NodeList.prototype.walk=function(callback){
 		}
 	);
 };
-
 function findMyNode(content, filter)
 {
 	if(filter==undefined)
@@ -163,7 +160,6 @@ function findMyNode(content, filter)
 	}
 	return false;
 }
-
 function selectMyContent(node)
 {
 	var selection = window.getSelection();            
@@ -172,7 +168,6 @@ function selectMyContent(node)
 	selection.removeAllRanges();
 	selection.addRange(range);
 }
-
 function findAllNode(content, filter)
 {
 	if(filter==undefined)
@@ -199,22 +194,10 @@ function findAllNode(content, filter)
 	}
 	return feedBack;
 }
-
 if(GET['searchString']!=undefined)
 {
 	window.find(GET['searchString']);
 }
-
-function selectMyContent(node)
-{
-	var selection = window.getSelection();            
-	var range = document.createRange();
-	range.selectNodeContents(node);
-	selection.removeAllRanges();
-	selection.addRange(range);
-	
-}
-
 function setSelectText(select, text)
 {
     for (var i=0; i<select.length;i++) {
@@ -226,7 +209,6 @@ function setSelectText(select, text)
     }
     return false;	
 }
-
 function indexMatchingText(ele, text) {
     for (var i=0; i<ele.length;i++) {
         if (ele[i].childNodes[0].nodeValue.toLowerCase() === text.toLowerCase()){
@@ -242,7 +224,6 @@ function indexMatchingText(ele, text) {
     }
     return undefined;
 }
-
 function getBinary(file){
     var xhr = new XMLHttpRequest();
     xhr.open("GET", file, false);
@@ -250,7 +231,6 @@ function getBinary(file){
     xhr.send(null);
     return xhr.responseText;
 }
-
 function base64Encode(str) {
     var CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     var out = "", i = 0, len = str.length, c1, c2, c3;
