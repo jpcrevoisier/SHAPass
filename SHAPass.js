@@ -32,17 +32,17 @@ function SHAPass()
 		"majCharLst":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 		"minCharLst":"abcdefghijklmnopqrstuvwxyz",
 		"numCharLst":"0123456789",
-		"specCharLst":"?!'&|\\$:;,/_-@#<{([])}>"
+		"specCharLst":"?!'&|\$:;,/_-@#<{([])}>"
 	};
-	var SHAPassDatas=localStorage.getObject('SHAPass',this);
+	var SHAPassDatas=localStorage.getObject('SHAPass',this); // Assuming localStorage.getObject is defined elsewhere (e.g. common.js)
 	this.prefs=SHAPassDatas.prefs||SHAPassDatas.defPrefs;
 	this.domains=SHAPassDatas.domains||{};
 	this.getCurrentPrefs=function()
 	{
-		console.log(getDomain());
+		console.log(getDomain()); // Assuming getDomain is globally available from popup.js
 		return this.domains[getDomain()]||this.prefs;
 	};
-	localStorage.setObject('SHAPass',this);
+	localStorage.setObject('SHAPass',this); // Assuming localStorage.setObject is defined elsewhere
 	this.hash=function(event)
 	{
 		var hostname=document.querySelector('#hostname');
@@ -50,60 +50,71 @@ function SHAPass()
 		var saltStri=document.querySelector('#saltStri');
 		var password=document.querySelector('#password');
 		var passwlen=document.querySelector('#passwlen');
-		var passwres=document.querySelector('#passwres');
+		// var passwres=document.querySelector('#passwres'); // passwres seems unused for direct output here
 
-		var minCharLst=document.querySelector('#minCharLst');
-		var majCharLst=document.querySelector('#majCharLst');
-		var numCharLst=document.querySelector('#numCharLst');
-		var specCharLst=document.querySelector('#specCharLst');
-		c=CryptoJS.SHA3(hostname.value+''+username.value+''+password.value+''+saltStri.value).toString();
+		// var minCharLst=document.querySelector('#minCharLst'); // These are used for checkbox state, not directly in hash string
+		// var majCharLst=document.querySelector('#majCharLst');
+		// var numCharLst=document.querySelector('#numCharLst');
+		// var specCharLst=document.querySelector('#specCharLst');
+		var c=CryptoJS.SHA3(hostname.value+''+username.value+''+password.value+''+saltStri.value).toString();
 		c+=CryptoJS.SHA3(saltStri.value+''+password.value+''+username.value+''+hostname.value).toString();
-		lists=document.querySelectorAll('input[type=checkbox]:checked');
-		y='';
-		i=0;
+		var lists=document.querySelectorAll('input[type=checkbox]:checked');
+		var y=''; // This is the generated password
+		var i=0;
 		while(i<=(c.length-4) && y.length<=passwlen.value)
 		{
-			w=parseInt(c.slice(i,i+2),16);
-			x=parseInt(c.slice(i+2,i+4),16);
+			var w=parseInt(c.slice(i,i+2),16);
+			var x=parseInt(c.slice(i+2,i+4),16);
 			i=i+4;
-			cList=this.charLst[(lists[(w%lists.length)].id)];
-			cChar=cList[(x%cList.length)];
-			y+=cChar;
+			if (lists.length > 0) { // Ensure lists is not empty to prevent modulo by zero
+			  var cList=this.charLst[(lists[(w%lists.length)].id)];
+			  if (cList && cList.length > 0) { // Ensure cList is valid and not empty
+			    var cChar=cList[(x%cList.length)];
+			    y+=cChar;
+			  }
+			} else { 
+			    // Handle case where no character types are selected, maybe default to a basic set or skip?
+			    // For now, it will result in an empty password if no checkboxes are ticked.
+			}
 		}
-		const input = document.createElement('input');
-		input.style.position = 'fixed';
-		input.style.opacity = 0;
-		input.value = y;
-		document.body.appendChild(input);
-		input.select();
-		document.execCommand('Copy');
-		document.body.removeChild(input);
-		document.querySelector('#result').innerHtml='Mot de passe copié ...';
+
+		navigator.clipboard.writeText(y)
+		  .then(() => {
+		    if(document.querySelector('#result')) {
+		      document.querySelector('#result').innerHTML = 'Mot de passe copié !';
+		    }
+		  })
+		  .catch(err => {
+		    console.error('Erreur lors de la copie au presse-papiers:', err);
+		    if(document.querySelector('#result')) {
+		      document.querySelector('#result').innerHTML = 'Erreur de copie.';
+		    }
+		  });
 	};
 	this.fillFields=function()
 	{
-		prefs=this.getCurrentPrefs();
+		var prefs=this.getCurrentPrefs();
 		var hostname=document.querySelector('#hostname');
 		var username=document.querySelector('#username');
 		var saltStri=document.querySelector('#saltStri');
-		var password=document.querySelector('#password');
+		// var password=document.querySelector('#password'); // Not filled by default
 		var passwlen=document.querySelector('#passwlen');
-		var passwres=document.querySelector('#passwres');
+		// var passwres=document.querySelector('#passwres'); // Not filled by default
 
 		var minCharLst=document.querySelector('#minCharLst');
 		var majCharLst=document.querySelector('#majCharLst');
 		var numCharLst=document.querySelector('#numCharLst');
 		var specCharLst=document.querySelector('#specCharLst');
 		
-		hostname.value=getDomain();
-		username.value=prefs.username;
-		passwlen.value=prefs.passwlen;
-		saltStri.value=prefs.saltStri;
+		if (hostname) hostname.value=getDomain(); // Assuming getDomain is available
+		if (username) username.value=prefs.username;
+		if (passwlen) passwlen.value=prefs.passwlen;
+		if (saltStri) saltStri.value=prefs.saltStri;
 
-		minCharLst.checked=prefs.minCharLst;
-		majCharLst.checked=prefs.majCharLst;
-		numCharLst.checked=prefs.numCharLst;
-		specCharLst.checked=prefs.specCharLst;
+		if (minCharLst) minCharLst.checked=prefs.minCharLst;
+		if (majCharLst) majCharLst.checked=prefs.majCharLst;
+		if (numCharLst) numCharLst.checked=prefs.numCharLst;
+		if (specCharLst) specCharLst.checked=prefs.specCharLst;
 		
 		this.saveMe();
 		return true;
@@ -114,27 +125,34 @@ function SHAPass()
 		var hostname=document.querySelector('#hostname');
 		var username=document.querySelector('#username');
 		var saltStri=document.querySelector('#saltStri');
-		var password=document.querySelector('#password');
+		// var password=document.querySelector('#password'); // Password itself is not saved
 		var passwlen=document.querySelector('#passwlen');
-		var passwres=document.querySelector('#passwres');
+		// var passwres=document.querySelector('#passwres'); // Result is not saved
 
 		var minCharLst=document.querySelector('#minCharLst');
 		var majCharLst=document.querySelector('#majCharLst');
 		var numCharLst=document.querySelector('#numCharLst');
 		var specCharLst=document.querySelector('#specCharLst');
 
-		this.domains[getDomain()]={
-			"aaa": new Date(),
-			"hostname":hostname.value,
-			"username":username.value,
-			"saltStri":saltStri.value,
-			"passwlen":passwlen.value,
-			"minCharLst":minCharLst.checked,
-			"majCharLst":majCharLst.checked,
-			"numCharLst":numCharLst.checked,
-			"specCharLst":specCharLst.checked
+		// Ensure all elements exist before accessing properties
+		var domainKey = getDomain(); // Assuming getDomain is available
+		if (!domainKey) {
+		    console.error("Domain key is null or undefined, cannot save settings for domain.");
+		    return false;
+		}
+
+		this.domains[domainKey]={
+			"aaa": new Date(), // Consider if 'aaa' is a meaningful key or should be 'timestamp' or similar
+			"hostname": hostname ? hostname.value : '',
+			"username": username ? username.value : '',
+			"saltStri": saltStri ? saltStri.value : '',
+			"passwlen": passwlen ? passwlen.value : this.defPrefs.passwlen,
+			"minCharLst": minCharLst ? minCharLst.checked : this.defPrefs.minCharLst,
+			"majCharLst": majCharLst ? majCharLst.checked : this.defPrefs.majCharLst,
+			"numCharLst": numCharLst ? numCharLst.checked : this.defPrefs.numCharLst,
+			"specCharLst": specCharLst ? specCharLst.checked : this.defPrefs.specCharLst
 		};
-		localStorage.setObject('SHAPass',this);
+		localStorage.setObject('SHAPass',this); // Assuming localStorage.setObject is defined
 		return true;
 	};
 };
